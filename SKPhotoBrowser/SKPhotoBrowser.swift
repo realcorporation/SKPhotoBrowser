@@ -106,9 +106,9 @@ open class SKPhotoBrowser: UIViewController {
         configureAppearance()
         configurePagingScrollView()
         configureGestureControl()
-        configureActionView()
         configurePaginationView()
         configureToolbar()
+        configureActionView()
 
         animator.willPresent(self)
     }
@@ -253,6 +253,22 @@ open class SKPhotoBrowser: UIViewController {
             present(activityViewController, animated: true, completion: nil)
         }
     }
+
+    open func popupSaveImage() {
+        let photo = photos[currentPageIndex]
+
+        guard let underlyingImage = photo.underlyingImage else {
+            return
+        }
+
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        alertController.addAction(UIAlertAction(title: "Save Image", style: .default, handler: { (_) in
+            UIImageWriteToSavedPhotosAlbum(underlyingImage, nil, nil, nil);
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Public Function For Customizing Buttons
@@ -264,6 +280,10 @@ public extension SKPhotoBrowser {
     
     func updateDeleteButton(_ image: UIImage, size: CGSize? = nil) {
         actionView.updateDeleteButton(image: image, size: size)
+    }
+
+    func updateShareButton(_ image: UIImage, size: CGSize? = nil) {
+        actionView.updateShareButton(image: image, size: size)
     }
 }
 

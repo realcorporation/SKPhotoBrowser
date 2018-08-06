@@ -114,7 +114,7 @@ class SKAnimator: NSObject, SKPhotoBrowserAnimatorDelegate {
             if let view = senderViewForAnimation, view.layer.cornerRadius != 0 {
                 let duration = (animationDuration * Double(animationDamping))
                 resizableImageView.layer.masksToBounds = true
-                resizableImageView.addCornerRadiusAnimation(0, to: view.layer.cornerRadius, duration: duration)
+                resizableImageView.addCornerRadiusAnimation(0, to: view.layer.cornerRadius, duration: 0.2)
             }
         }
         dismissAnimation(browser)

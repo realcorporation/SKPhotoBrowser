@@ -12,6 +12,8 @@ public struct SKPhotoBrowserOptions {
     public static var displayStatusbar: Bool = false
     public static var displayCloseButton: Bool = true
     public static var displayDeleteButton: Bool = false
+    public static var displayToolbar: Bool = false
+    public static var displayShareButton: Bool = false
 
     public static var displayAction: Bool = true
     public static var shareExtraCaption: String?
@@ -47,8 +49,11 @@ public struct SKPhotoBrowserOptions {
 }
 
 public struct SKButtonOptions {
-    public static var closeButtonPadding: CGPoint = CGPoint(x: 5, y: 20)
+//    public static var closeButtonPadding: CGPoint = CGPoint(x: 5, y: 20)
+//    public static var deleteButtonPadding: CGPoint = CGPoint(x: 5, y: 20)
+    public static var closeButtonPadding: CGPoint = CGPoint(x: 10, y: 20)
     public static var deleteButtonPadding: CGPoint = CGPoint(x: 5, y: 20)
+    public static var shareButtonPadding: CGPoint = CGPoint(x: 5, y: 20)
 }
 
 public struct SKCaptionOptions {

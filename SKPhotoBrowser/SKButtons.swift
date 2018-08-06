@@ -17,7 +17,8 @@ class SKButton: UIButton {
     
     fileprivate var insets: UIEdgeInsets {
         if UI_USER_INTERFACE_IDIOM() == .phone {
-            return UIEdgeInsets(top: 15.25, left: 15.25, bottom: 15.25, right: 15.25)
+//            return UIEdgeInsets(top: 15.25, left: 15.25, bottom: 15.25, right: 15.25)
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         } else {
             return UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         }
@@ -65,7 +66,8 @@ class SKImageButton: SKButton {
 }
 
 class SKCloseButton: SKImageButton {
-    override var imageName: String { return "btn_common_close_wh" }
+//    override var imageName: String { return "btn_common_close_wh" }
+    override var imageName: String { return "" }
     override var marginX: CGFloat {
         get {
             return SKPhotoBrowserOptions.swapCloseAndDeleteButtons
@@ -85,9 +87,10 @@ class SKCloseButton: SKImageButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup(imageName)
-        showFrame = CGRect(x: marginX, y: marginY, width: size.width, height: size.height)
-        hideFrame = CGRect(x: marginX, y: -marginY, width: size.width, height: size.height)
+//        setup(imageName)
+        self.setTitle("Close", for: UIControlState())
+        showFrame = CGRect(x: marginX, y: marginY, width: 50, height: size.height)
+        hideFrame = CGRect(x: marginX, y: -marginY, width: 50, height: size.height)
     }
 }
 
@@ -117,3 +120,29 @@ class SKDeleteButton: SKImageButton {
         hideFrame = CGRect(x: marginX, y: -marginY, width: size.width, height: size.height)
     }
 }
+
+class SKShareButton: SKImageButton {
+    override var imageName: String { return "btn_common_share" }
+    override var marginX: CGFloat {
+        get {
+            return SKMesurement.screenWidth - SKButtonOptions.shareButtonPadding.x - self.size.width
+        }
+        set { super.marginX = newValue }
+    }
+    override var marginY: CGFloat {
+        get { return SKButtonOptions.shareButtonPadding.y + extraMarginY }
+        set { super.marginY = newValue }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup(imageName)
+        showFrame = CGRect(x: marginX, y: marginY, width: size.width, height: size.height)
+        hideFrame = CGRect(x: marginX, y: -marginY, width: size.width, height: size.height)
+    }
+}
+
