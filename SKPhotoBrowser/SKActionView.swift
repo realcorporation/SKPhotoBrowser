@@ -29,7 +29,7 @@ class SKActionView: UIView {
     
     convenience init(frame: CGRect, browser: SKPhotoBrowser) {
         self.init(frame: frame)
-        self.frame = frame
+//        self.frame = frame
         self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 100)//custom layout
         self.browser = browser
 
