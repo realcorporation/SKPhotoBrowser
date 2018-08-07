@@ -20,6 +20,7 @@ public struct SKPhotoBrowserOptions {
     public static var actionButtonTitles: [String]?
     
     public static var displayCounterLabel: Bool = true
+    public static var counterLabelText: String = ""
     public static var displayBackAndForwardButton: Bool = true
 
     public static var displayHorizontalScrollIndicator: Bool = true
@@ -66,6 +67,6 @@ public struct SKCaptionOptions {
 
 public struct SKToolbarOptions {
     public static var textColor: UIColor = .white
-    public static var font: UIFont = .systemFont(ofSize: 17.0)
+    public static var font: UIFont = .systemFont(ofSize: 17.0, weight: .semibold)
     public static var textShadowColor: UIColor = .black
 }

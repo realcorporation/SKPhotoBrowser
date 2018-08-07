@@ -30,7 +30,7 @@ class SKPaginationView: UIView {
     convenience init(frame: CGRect, browser: SKPhotoBrowser?) {
         self.init(frame: frame)
 //        self.frame = CGRect(x: 0, y: frame.height - margin - extraMargin, width: frame.width, height: 100)
-        self.frame = CGRect(x: 0, y: 0, width: frame.width, height: 100)//custom layout
+        self.frame = CGRect(x: 0, y: 0, width: frame.width, height: 100 - extraMargin)//custom layout
         self.browser = browser
 
         setupApperance()
@@ -65,6 +65,8 @@ class SKPaginationView: UIView {
         
         if browser.photos.count > 1 {
             counterLabel?.text = "\(currentPageIndex + 1) of \(browser.photos.count)"
+        } else if SKPhotoBrowserOptions.counterLabelText != ""{
+            counterLabel?.text = SKPhotoBrowserOptions.counterLabelText
         } else {
             counterLabel?.text = nil
         }

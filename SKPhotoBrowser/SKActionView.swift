@@ -71,14 +71,17 @@ class SKActionView: UIView {
 
         if SKPhotoBrowserOptions.displayCloseButton {
             self.closeButton.frame = closeButton.showFrame
+            self.closeButton.center = CGPoint(x: self.closeButton.frame.origin.x + (self.closeButton.frame.size.width / 2), y: frame.height / 2)
         }
 
         if SKPhotoBrowserOptions.displayDeleteButton {
             self.deleteButton.frame = deleteButton.showFrame
+            self.deleteButton.center = CGPoint(x: self.deleteButton.frame.origin.x + (self.deleteButton.frame.size.width / 2), y: frame.height / 2)
         }
 
         if SKPhotoBrowserOptions.displayShareButton {
             self.shareButton.frame = shareButton.showFrame
+            self.shareButton.center = CGPoint(x: self.shareButton.frame.origin.x + (self.shareButton.frame.size.width / 2), y: frame.height / 2)
         }
 
         UIView.animate(withDuration: 0.35,
@@ -125,6 +128,7 @@ extension SKActionView {
             closeButton.addTarget(self, action: #selector(closeButtonPressed(_:)), for: .touchUpInside)
             closeButton.isHidden = !SKPhotoBrowserOptions.displayCloseButton
             closeButton.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
+            
             addSubview(closeButton)
         }
 
