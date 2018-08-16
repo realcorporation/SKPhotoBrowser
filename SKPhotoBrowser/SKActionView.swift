@@ -14,7 +14,7 @@ class SKActionView: UIView {
     internal var deleteButton: SKDeleteButton!
     internal var shareButton: SKShareButton!
 
-    private var extraMargin: CGFloat = SKMesurement.isPhoneX ? 40 : 0
+    private var extraMargin: CGFloat = SKMesurement.isPhoneX ? 44 : 0
 
     // Action
     fileprivate var cancelTitle = "Cancel"
@@ -30,7 +30,7 @@ class SKActionView: UIView {
     convenience init(frame: CGRect, browser: SKPhotoBrowser) {
         self.init(frame: frame)
 //        self.frame = frame
-        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 100)//custom layout
+        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 44)//custom layout
         self.browser = browser
 
         configureCloseButton()
@@ -50,7 +50,7 @@ class SKActionView: UIView {
     
     func updateFrame(frame: CGRect) {
 //        self.frame = frame
-        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 100)//custom layout
+        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 44)//custom layout
         setNeedsDisplay()
     }
 
