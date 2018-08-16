@@ -15,7 +15,7 @@ class SKPaginationView: UIView {
     var prevButton: UIButton?
     var nextButton: UIButton?
     private var margin: CGFloat = 100
-    private var extraMargin: CGFloat = SKMesurement.isPhoneX ? 40 : 0
+    private var extraMargin: CGFloat = SKMesurement.isPhoneX ? 44 : 0
     
     fileprivate weak var browser: SKPhotoBrowser?
     
@@ -30,7 +30,7 @@ class SKPaginationView: UIView {
     convenience init(frame: CGRect, browser: SKPhotoBrowser?) {
         self.init(frame: frame)
 //        self.frame = CGRect(x: 0, y: frame.height - margin - extraMargin, width: frame.width, height: 100)
-        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 100 - extraMargin)//custom layout
+        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 44)//custom layout
         self.browser = browser
 
         setupApperance()
@@ -57,7 +57,7 @@ class SKPaginationView: UIView {
     
     func updateFrame(frame: CGRect) {
 //        self.frame = CGRect(x: 0, y: frame.height - margin - extraMargin, width: frame.width, height: 100)
-        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 100)//custom layout
+        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 44)//custom layout
     }
     
     func update(_ currentPageIndex: Int) {
