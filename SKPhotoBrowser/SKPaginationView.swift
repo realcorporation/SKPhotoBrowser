@@ -94,7 +94,7 @@ private extension SKPaginationView {
     func setupCounterLabel() {
         guard SKPhotoBrowserOptions.displayCounterLabel else { return }
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         label.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
         label.textAlignment = .center
         label.backgroundColor = .clear
