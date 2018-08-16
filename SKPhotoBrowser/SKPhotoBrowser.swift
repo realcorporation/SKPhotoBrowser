@@ -263,7 +263,7 @@ open class SKPhotoBrowser: UIViewController {
 
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        alertController.addAction(UIAlertAction(title: "Save Image", style: .cancel, handler: { (_) in
+        alertController.addAction(UIAlertAction(title: "Save Image", style: .default, handler: { (_) in
             UIImageWriteToSavedPhotosAlbum(underlyingImage, nil, nil, nil);
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
