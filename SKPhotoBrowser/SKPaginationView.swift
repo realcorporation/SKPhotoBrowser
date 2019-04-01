@@ -15,7 +15,7 @@ class SKPaginationView: UIView {
     var prevButton: UIButton?
     var nextButton: UIButton?
     private var margin: CGFloat = 100
-    private var extraMargin: CGFloat = SKMesurement.isPhoneX ? 40 : 0
+    private var extraMargin: CGFloat = SKMesurement.isPhoneX ? 44 : 0
     
     fileprivate weak var browser: SKPhotoBrowser?
     
@@ -29,7 +29,7 @@ class SKPaginationView: UIView {
     
     convenience init(frame: CGRect, browser: SKPhotoBrowser?) {
         self.init(frame: frame)
-        self.frame = CGRect(x: 0, y: frame.height - margin - extraMargin, width: frame.width, height: 100)
+        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 44)//custom layout
         self.browser = browser
 
         setupApperance()
@@ -55,14 +55,16 @@ class SKPaginationView: UIView {
     }
     
     func updateFrame(frame: CGRect) {
-        self.frame = CGRect(x: 0, y: frame.height - margin, width: frame.width, height: 100)
+        self.frame = CGRect(x: 0, y: extraMargin, width: frame.width, height: 44)//custom layout
     }
     
     func update(_ currentPageIndex: Int) {
         guard let browser = browser else { return }
         
         if browser.photos.count > 1 {
-            counterLabel?.text = "\(currentPageIndex + 1) / \(browser.photos.count)"
+            counterLabel?.text = "\(currentPageIndex + 1) of \(browser.photos.count)"
+        } else if SKPhotoBrowserOptions.counterLabelText != ""{
+            counterLabel?.text = SKPhotoBrowserOptions.counterLabelText
         } else {
             counterLabel?.text = nil
         }
@@ -90,7 +92,7 @@ private extension SKPaginationView {
     func setupCounterLabel() {
         guard SKPhotoBrowserOptions.displayCounterLabel else { return }
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         label.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
         label.textAlignment = .center
         label.backgroundColor = .clear
